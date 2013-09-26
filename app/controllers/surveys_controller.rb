@@ -28,6 +28,7 @@ class SurveysController < ApplicationController
     p '%' * 100
     p params
     @survey = Survey.find(params[:id])
-    @survey.update_attributes(params[:survey][:title])
+    @survey.update_attributes(:title => params[:string])
+    render :json => @survey
   end
 end

@@ -1,16 +1,14 @@
 <h1> This is your beautiful survey. </h1>
 
-<div id="edit_survey" contenteditable="true">
-  <%= @survey.title %>
-  <div id="update_button"><%= button_to "Update Survey Title" %></div>
-</div>
-
-
-  <% @survey.questions.each do |question| %>
-  <div contenteditable="true">
-    <%= question.body %><br />
+<div id="edit_survey_and_questions">
+  <div id="edit_survey" contenteditable="true">
+    <%= @survey.title %><br />
   </div>
-  <% end %>
-
-
-
+    <% @survey.questions.each do |question| %>
+  <div id="edit_question" contenteditable="true">
+      <%= question.body %><br />
+  </div>
+    <% end %>
+  <div id="update_button"><%= button_to "Update Survey Title", survey_path(@survey) %>
+  </div>
+</div>
