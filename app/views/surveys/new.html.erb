@@ -1,0 +1,11 @@
+<h3>Create a new survey!</h3>
+
+<%= form_for @survey do |survey_form| %>
+  Survey title: <%= survey_form.text_field :title %><br />
+
+  <%= survey_form.fields_for :questions, @survey.questions do |question_fields| %>
+  Question body: <%= question_fields.text_field :body %><br />
+  <% end %>
+
+  <%= survey_form.submit %>
+<% end %>
